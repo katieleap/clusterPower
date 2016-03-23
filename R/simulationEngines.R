@@ -17,7 +17,8 @@ power.sim.normal <- function(n.sim=10,
 			     period.var,
 			     estimation.function,
 			     permute=FALSE,
-			     verbose=FALSE)
+			     verbose=FALSE, 
+			     shiny=FALSE)
 {
 	## validation
 	incl.period.effect <- TRUE
@@ -66,6 +67,7 @@ power.sim.normal <- function(n.sim=10,
 
 	message(paste("starting simulation ::", Sys.time()))
 	for (i in 1:n.sim){
+	  if(shiny) incProgress(1/n.sim)
 		sim.dat <- sim.dat.base
 
 		## generate dataset
@@ -128,7 +130,8 @@ power.sim.binomial <- function(n.sim=10,
 			     period.var,
 			     estimation.function,
 			     permute=FALSE,
-			     verbose=FALSE)
+			     verbose=FALSE, 
+			     shiny=FALSE)
 {
 
 	## validation
@@ -179,6 +182,7 @@ power.sim.binomial <- function(n.sim=10,
 
 	message(paste("starting simulation ::", Sys.time()))
 	for (i in 1:n.sim){
+	  if(shiny) incProgress(1/n.sim)
 		sim.dat <- sim.dat.base
 
 		## generate dataset
@@ -239,7 +243,8 @@ power.sim.poisson <- function(n.sim=10,
 			      estimation.function,
 			      at.risk.params,
 			      permute=FALSE,
-			      verbose=FALSE)
+			      verbose=FALSE, 
+			      shiny=FALSE)
 {
 
 	## validation
@@ -294,6 +299,7 @@ power.sim.poisson <- function(n.sim=10,
 
 	message(paste("starting simulation ::", Sys.time()))
 	for (i in 1:n.sim){
+	  if(shiny) incProgress(1/n.sim)
 		sim.dat <- sim.dat.base
 
 		## generate dataset
